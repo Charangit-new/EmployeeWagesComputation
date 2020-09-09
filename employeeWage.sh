@@ -5,14 +5,15 @@ read -p "Enter wage per hour(can be assumed as 20) " wg
 read -p "Enter full day hour(can be assumed as 8) " f
 read -p "Enter part time hour (can be assumed as 4)" h
 
+hoursPerDay=0
+randomCheck=$(( RANDOM%3 ))
 
-random=$((RANDOM%3))
-case $random in
-        1)  hoursPerDay=$f ;;
-        2)  hoursPerDay=$h ;;
-        *)  hoursPerDay=0 ;;
-        esac
-
+if [ $randomCheck -eq 1 ]
+then hoursPerDay=$f
+elif [ $randomCheck -eq 2 ] 
+then hoursPerDay=$h
+else echo "Employee is absent"
+fi
 
 dailyWage=$(( wg * hoursPerDay ))
 echo "DailyWage=$dailyWage"
