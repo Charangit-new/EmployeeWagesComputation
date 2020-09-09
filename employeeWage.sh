@@ -7,3 +7,11 @@ then
 else
         echo "Not present"
 fi
+
+
+echo "Daily wage of Employee"
+read -p "Enter wage per hour(can be assumed as 20) " wg
+read -p "Enter full day hour(can be assumed as 8) " f
+
+dailyWage=$(( wg * f))
+echo "DailyWage=$dailyWage"
