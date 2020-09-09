@@ -14,7 +14,7 @@ case $1 in
         *)  hoursPerDay=0  ;;
         esac
 }
-
+echo "Daily Wage          Total Wage"
 while [ $br -eq 1 ]
 do
 	if [[ $workingHours -eq $w ]] || [[ $days -eq $d ]]
@@ -26,5 +26,6 @@ do
 	workingHours=$(( workingHours + hoursPerDay ))
 	((days++))
 	fi
+	echo "  $dailyWage        $totalWage"
 done
-echo "Total Wage = $totalWage"
+
