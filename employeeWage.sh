@@ -7,18 +7,20 @@ read -p "Enter no of working days in month (can be assumed as 20) " d
 read -p "Enter no of working hours (can be assumed as 100)" w
 
 br=1
-while [ $br -eq 1 ]
-do
-case $randomCheck in
+function workHours() {
+case $1 in
         1)  hoursPerDay=$f ;;
         2)  hoursPerDay=$h ;;
         *)  hoursPerDay=0  ;;
         esac
+}
 
+while [ $br -eq 1 ]
+do
 	if [[ $workingHours -eq $w ]] || [[ $days -eq $d ]]
         then br=0 break
 	else
-	randomCheck=$(( RANDOM%3 ))
+	workHours $(( RANDOM%3 ))
 	dailyWage=$(( wg * hoursPerDay ))
 	totalWage=$(( totalWage + dailyWage ))
 	workingHours=$(( workingHours + hoursPerDay ))
